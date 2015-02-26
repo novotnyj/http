@@ -330,4 +330,14 @@ class Request extends Nette\Object implements IRequest
 		return $lang;
 	}
 
+    /**
+     * Returns JSON decoded request body
+     * @param int $options accepts Json::FORCE_ARRAY
+     * @return mixed
+     * @throws Nette\Utils\JsonException
+     */
+    public function getJSON($options = 0) {
+        return Nette\Utils\Json::decode($this->getRawBody(), $options);
+    }
+
 }
